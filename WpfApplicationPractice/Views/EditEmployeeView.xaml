@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:WpfApplicationPractice.Views"
         xmlns:ViewModels="clr-namespace:WpfApplicationPractice.ViewModels" x:Name="window" x:Class="WpfApplicationPractice.Views.EditEmployeeView"
         mc:Ignorable="d"
-        Title="EditEmployeeView" Height="290.175" Width="361.924">
+        Title="EditEmployeeView" Height="318.5" Width="361.924">
     <Window.DataContext>
         <ViewModels:EditEmployeeViewModel/>
     </Window.DataContext>
-    <Grid Margin="10">
+    <Grid Margin="10" Height="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -27,13 +27,13 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Content="{Binding Employee_NameLabel_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Grid.Row="0" Grid.Column="0" Margin="3"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Margin="3" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                <TextBox  Grid.Row="0" Grid.Column="1" Margin="3,3,3,15" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Height="25" Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
                 <Label Content="{Binding Employee_AgeLabel_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Grid.Row="1" Grid.Column="0" Margin="3"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="3,3,3,15" Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Height="25" Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="GroupBox" Grid.Row="2">

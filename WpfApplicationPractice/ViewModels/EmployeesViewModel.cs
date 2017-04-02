@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Windows;
-using System.Windows.Controls.Ribbon;
 using System.Windows.Input;
-using System.Windows.Navigation;
 using WpfApplicationPractice.Helpers;
 using WpfApplicationPractice.Models;
 using WpfApplicationPractice.Properties;
@@ -105,7 +101,9 @@ namespace WpfApplicationPractice.ViewModels
 
         private void EditEntity(object parameter)
         {
-            throw new NotImplementedException();
+            IView view = WindowProvider.GetWindow("EditEmployee", SelectedEmployee);
+            view.ShowDialog();
+            Refresh();
         }
 
         private void DeleteEntity(object parameter)
@@ -116,7 +114,6 @@ namespace WpfApplicationPractice.ViewModels
         private void NewEntity(object parameter)
         {
             IView view = WindowProvider.GetWindow("EditEmployee", new EmployeeEntity());
-            view.DataContext = new EditEmployeeViewModel(new EmployeeEntity());
             view.ShowDialog();
             Refresh();
         }
@@ -141,7 +138,9 @@ namespace WpfApplicationPractice.ViewModels
             switch (windowName)
             {
                 case "EditEmployee":
-                    return new EditEmployeeView();
+                    Window editView = new EditEmployeeView();
+                    editView.DataContext = new EditEmployeeViewModel(entity);
+                    return (IView)editView;
                 default:
                     throw new InvalidOperationException();
             }

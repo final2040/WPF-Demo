@@ -34,8 +34,8 @@ namespace WpfApplicationPractice.ViewModels
             Id = employee.Id;
             Name = employee.Name;
             Age = employee.Age;
-            Job = employee.Job?.Id ?? 0;
-            Department = employee.Department?.Id ?? 0;
+            Job = employee.Job?.Id ?? 1;
+            Department = employee.Department?.Id ?? 1;
             JobList = _jobData.GetAll().Select(j => new KeyValuePair<int,string>(j.Id,j.Name)).ToArray();
             DepartmentList = _departmentData.GetAll().Select(j=> new KeyValuePair<int,string>(j.Id,j.Name)).ToArray();
             Save = new RelayCommand(SaveEntity, ValidateViewModel);

@@ -6,5 +6,16 @@
              xmlns:applicationText="clr-namespace:WpfApplicationPractice.Properties">
     <Application.Resources>
         <applicationText:ApplicationText x:Key="ApplicationText"/>
+        <ControlTemplate x:Key="ErrorTemplate">
+            <DockPanel LastChildFill="true">
+                <Border BorderBrush="Red" BorderThickness="1" DockPanel.Dock="Top">
+                    <AdornedElementPlaceholder Name="ErrorAdorner"/>
+                </Border>
+                
+                <TextBlock DockPanel.Dock="Bottom" Foreground="Red" FontSize="9" 
+                           Text="{Binding ElementName=ErrorAdorner,
+                                          Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"/>
+            </DockPanel>
+        </ControlTemplate>
     </Application.Resources>
 </Application>

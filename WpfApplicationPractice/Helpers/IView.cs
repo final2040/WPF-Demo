@@ -6,6 +6,5 @@ namespace WpfApplicationPractice.Helpers
     {
         void Close();
         bool? ShowDialog();
-        object DataContext { get; set; }
     }
 }

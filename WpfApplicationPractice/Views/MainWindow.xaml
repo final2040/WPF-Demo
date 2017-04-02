@@ -6,13 +6,13 @@
         xmlns:appResources="clr-namespace:WpfApplicationPractice.Properties"
         xmlns:local="clr-namespace:WpfApplicationPractice"
         xmlns:properties="clr-namespace:WpfApplicationPractice.Properties"
-        xmlns:ViewModels="clr-namespace:WpfApplicationPractice.ViewModels" x:Class="WpfApplicationPractice.Views.MainWindow"
+        xmlns:viewModels="clr-namespace:WpfApplicationPractice.ViewModels" x:Class="WpfApplicationPractice.Views.MainWindow"
         mc:Ignorable="d"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         Title="MainWindow" Height="427" Width="650">
 
     <RibbonWindow.DataContext>
-        <ViewModels:EmployeesViewModel/>
+        <viewModels:EmployeesViewModel/>
     </RibbonWindow.DataContext>
 
     <Grid>
@@ -35,13 +35,25 @@
                     <RibbonButton Label="{Binding Ribbon_DeleteUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" LargeImageSource="/WpfApplicationPractice;component/Images/user_delete32x32.png" SmallImageSource="/WpfApplicationPractice;component/Images/user_delete16x16.png" Command="{Binding Delete, Mode=OneWay}"/>
                 </RibbonGroup>
                 <RibbonGroup Header="{Binding Ribbon_SearchGroup_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Margin="0,1">
-                    <RibbonTextBox x:Name="ribbonTextBox" Text="{Binding TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" SmallImageSource="/WpfApplicationPractice;component/Images/filter.png" Label="{Binding Ribbon_SearchUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Command="{Binding Find, Mode=OneWay}" Margin="0,0,-142,0" TextBoxWidth="100" />
+                    <RibbonTextBox  x:Name="ribbonTextBox" Text="{Binding TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SmallImageSource="/WpfApplicationPractice;component/Images/filter.png" Label="{Binding Ribbon_SearchUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Command="{Binding Find, Mode=OneWay}" Margin="0,0,-142,0" TextBoxWidth="100">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="KeyUp">
+                                <i:InvokeCommandAction Command="{Binding Find}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RibbonTextBox>
                     <RibbonButton SmallImageSource="/WpfApplicationPractice;component/Images/filter_delete.png" Label="{Binding Ribbon_ClearFilter_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Width="{Binding ActualWidth, ElementName=ribbonTextBox, Mode=OneWay}" Command="{Binding ClearFilter, Mode=OneWay}"></RibbonButton>
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
         <!-- Row 2 -->
-        <DataGrid x:Name="dataGrid" Grid.Column="0" Grid.Row="1" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding Employees, Mode=OneWay}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFE0E0E0" VerticalGridLinesBrush="#FFE0E0E0" IsReadOnly="True">
+        <DataGrid x:Name="dataGrid" Grid.Column="0" Grid.Row="1" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding Employees, Mode=OneWay}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFE0E0E0" VerticalGridLinesBrush="#FFE0E0E0" IsReadOnly="True" SelectionMode="Single">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding Edit}"></i:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}"/>
                 <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}"/>
