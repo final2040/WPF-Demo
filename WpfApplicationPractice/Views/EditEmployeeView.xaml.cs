@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplicationPractice.Helpers;
 
-namespace WpfApplicationPractice
+namespace WpfApplicationPractice.Views
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para EditEmployeeView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EditEmployeeView : Window, IView
     {
-        public MainWindow()
+        public EditEmployeeView()
         {
             InitializeComponent();
         }

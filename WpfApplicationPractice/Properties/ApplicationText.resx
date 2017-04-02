@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,93 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Department_Name_Format_Error" xml:space="preserve">
+    <value>El nombre debe de contener solamente letras.</value>
+  </data>
+  <data name="Employee_Age_Range_Error" xml:space="preserve">
+    <value>La edad debe de ser entre 18 y 99 años.</value>
+  </data>
+  <data name="Employee_Name_Format_Error" xml:space="preserve">
+    <value>El nombre debe de contener solamente Letras.</value>
+  </data>
+  <data name="Employee_Name_Length_Error" xml:space="preserve">
+    <value>El nombre no puede tener mas de 90 carácteres.</value>
+  </data>
+  <data name="Job_Name_Format_Error" xml:space="preserve">
+    <value>El nombre debe de contener solamente letras.</value>
+  </data>
+  <data name="PropertyNameNotFound_Error" xml:space="preserve">
+    <value>No se pudo encontrar la propiedad {0}.</value>
+  </data>
+  <data name="Required_Error" xml:space="preserve">
+    <value>El campo es Requerido</value>
+  </data>
+  <data name="Ribbon_AddUser_Text" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="Ribbon_DeleteUser_Text" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Ribbon_EditionGroup_Text" xml:space="preserve">
+    <value>Edición</value>
+  </data>
+  <data name="Ribbon_EditUser_Text" xml:space="preserve">
+    <value>Editar...</value>
+  </data>
+  <data name="Ribbon_Exit_Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="Ribbon_SearchGroup_Text" xml:space="preserve">
+    <value>Búsqueda</value>
+  </data>
+  <data name="Ribbon_SearchUser_Text" xml:space="preserve">
+    <value>Filtrar</value>
+  </data>
+  <data name="Ribbon_ViewUserDetail_Text" xml:space="preserve">
+    <value>Detalle</value>
+  </data>
+  <data name="StatusBar_CurrentIndex_Text" xml:space="preserve">
+    <value>Registo:</value>
+  </data>
+  <data name="Ribbon_ClearFilter_Text" xml:space="preserve">
+    <value>Limpiar Filtros</value>
+  </data>
+  <data name="InvalidTypeErrror" xml:space="preserve">
+    <value>El objeto proporcionado es incorrecto.</value>
+  </data>
+  <data name="UnexpectedError_Caption" xml:space="preserve">
+    <value>Ha ocurrido un error Inesperado</value>
+  </data>
+  <data name="UnexpectedError_Text" xml:space="preserve">
+    <value>Ha ocurrido un error: {0}</value>
+  </data>
+  <data name="Cancel_Button_Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="EditEmployee_Title_Text" xml:space="preserve">
+    <value>Editar Empleado</value>
+  </data>
+  <data name="Employee_AgeLabel_Text" xml:space="preserve">
+    <value>Edad:</value>
+  </data>
+  <data name="Employee_DepartmentLabel_Text" xml:space="preserve">
+    <value>Departamento:</value>
+  </data>
+  <data name="Employee_JobLabel_Text" xml:space="preserve">
+    <value>Puesto:</value>
+  </data>
+  <data name="Employee_NameLabel_Text" xml:space="preserve">
+    <value>Nombre:</value>
+  </data>
+  <data name="Ok_Button_Text" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="UnknownWindowError_Text" xml:space="preserve">
+    <value>No se encontró ninguna ventana para mostrar.</value>
+  </data>
 </root>
