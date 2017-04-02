@@ -201,4 +201,28 @@
   <data name="UnknownWindowError_Text" xml:space="preserve">
     <value>No se encontró ninguna ventana para mostrar.</value>
   </data>
+  <data name="Employee_Age_Column_Header" xml:space="preserve">
+    <value>Edad</value>
+  </data>
+  <data name="Employee_Department_Column_Header" xml:space="preserve">
+    <value>Departamento</value>
+  </data>
+  <data name="Employee_Job_Column_Header" xml:space="preserve">
+    <value>Puesto</value>
+  </data>
+  <data name="Employee_Name_Column_Header" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Employee_View_Name" xml:space="preserve">
+    <value>Empleados</value>
+  </data>
+  <data name="Ribbon_Department" xml:space="preserve">
+    <value>Departamentos</value>
+  </data>
+  <data name="Ribbon_Employee" xml:space="preserve">
+    <value>Empleados</value>
+  </data>
+  <data name="Ribbon_Jobs" xml:space="preserve">
+    <value>Puestos de trabajo</value>
+  </data>
 </root>

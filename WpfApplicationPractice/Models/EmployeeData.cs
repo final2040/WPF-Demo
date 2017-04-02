@@ -92,7 +92,8 @@ namespace WpfApplicationPractice.Models
 
         public void Remove(EmployeeEntity entity)
         {
-            Employees.RemoveAt(Employees.IndexOf(entity));
+            if (Exists(entity))
+                Employees.RemoveAt(Employees.IndexOf(entity));
         }
     }
 }

@@ -7,12 +7,13 @@
         xmlns:local="clr-namespace:WpfApplicationPractice"
         xmlns:properties="clr-namespace:WpfApplicationPractice.Properties"
         xmlns:viewModels="clr-namespace:WpfApplicationPractice.ViewModels" x:Class="WpfApplicationPractice.Views.MainWindow"
+        xmlns:views="clr-namespace:WpfApplicationPractice.Views"
         mc:Ignorable="d"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         Title="MainWindow" Height="427" Width="650">
 
     <RibbonWindow.DataContext>
-        <viewModels:EmployeesViewModel/>
+        <viewModels:MainViewModel/>
     </RibbonWindow.DataContext>
 
     <Grid>
@@ -25,49 +26,58 @@
         <Ribbon x:Name="MainMenu" SelectedIndex="0" Grid.Row="0">
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu>
+                    <RibbonApplicationMenuItem Header="{Binding Ribbon_Employee, Mode=OneWay, Source={StaticResource ApplicationText}}" ImageSource="/WpfApplicationPractice;component/Images/user32x32.png" Command="{Binding CreateEmployeeTabCommand}"/>
+                    <RibbonApplicationMenuItem Header="{Binding Ribbon_Department, Mode=OneWay, Source={StaticResource ApplicationText}}" ImageSource="/WpfApplicationPractice;component/Images/bricks.png" Command="{Binding CreateDepartmentTabCommand}"/>
+                    <RibbonApplicationMenuItem Header="{Binding Ribbon_Jobs, Mode=OneWay, Source={StaticResource ApplicationText}}" ImageSource="/WpfApplicationPractice;component/Images/ceo.png" Command="{Binding CreateJobTabCommand}"/>
                     <RibbonApplicationSplitMenuItem Header="{Binding Ribbon_Exit_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" ImageSource="/WpfApplicationPractice;component/Images/door_out.png"/>
+                    
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
-            <RibbonTab x:Name="EmpleadosTab" Header="Empleados">
+            <RibbonTab x:Name="EmpleadosTab" Header="{Binding Ribbon_Employee, Mode=OneWay, Source={StaticResource ApplicationText}}">
                 <RibbonGroup x:Name="EdicionGroup" Header="{Binding Ribbon_EditionGroup_Text, Source={StaticResource ResourceKey=ApplicationText}}">
-                    <RibbonButton Label="{Binding Ribbon_AddUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" LargeImageSource="/WpfApplicationPractice;component/Images/user_add32x32.png" SmallImageSource="/WpfApplicationPractice;component/Images/user_add16x16.png" Command="{Binding New, Mode=OneWay}"/>
-                    <RibbonButton Command="{Binding Edit, Mode=OneWay}" LargeImageSource="/WpfApplicationPractice;component/Images/user_edit32x32.png" SmallImageSource="/WpfApplicationPractice;component/Images/user_edit16x16.png" Label="{Binding Ribbon_EditUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}"/>
-                    <RibbonButton Label="{Binding Ribbon_DeleteUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" LargeImageSource="/WpfApplicationPractice;component/Images/user_delete32x32.png" SmallImageSource="/WpfApplicationPractice;component/Images/user_delete16x16.png" Command="{Binding Delete, Mode=OneWay}"/>
+                    <RibbonButton Label="{Binding Ribbon_AddUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" LargeImageSource="/WpfApplicationPractice;component/Images/user_add32x32.png" SmallImageSource="/WpfApplicationPractice;component/Images/user_add16x16.png" Command="{Binding NewCommand, Mode=OneWay}"/>
+                    <RibbonButton Command="{Binding EditCommand, Mode=OneWay}" LargeImageSource="/WpfApplicationPractice;component/Images/user_edit32x32.png" SmallImageSource="/WpfApplicationPractice;component/Images/user_edit16x16.png" Label="{Binding Ribbon_EditUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}"/>
+                    <RibbonButton Label="{Binding Ribbon_DeleteUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" LargeImageSource="/WpfApplicationPractice;component/Images/user_delete32x32.png" SmallImageSource="/WpfApplicationPractice;component/Images/user_delete16x16.png" Command="{Binding DeleteCommand, Mode=OneWay}"/>
                 </RibbonGroup>
                 <RibbonGroup Header="{Binding Ribbon_SearchGroup_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Margin="0,1">
-                    <RibbonTextBox  x:Name="ribbonTextBox" Text="{Binding TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SmallImageSource="/WpfApplicationPractice;component/Images/filter.png" Label="{Binding Ribbon_SearchUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Command="{Binding Find, Mode=OneWay}" Margin="0,0,-142,0" TextBoxWidth="100">
+                    <RibbonTextBox  x:Name="ribbonTextBox" Text="{Binding TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SmallImageSource="/WpfApplicationPractice;component/Images/filter.png" Label="{Binding Ribbon_SearchUser_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Command="{Binding FindCommand, Mode=OneWay}" Margin="0,0,-142,0" TextBoxWidth="100">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="KeyUp">
-                                <i:InvokeCommandAction Command="{Binding Find}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding FindCommand}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </RibbonTextBox>
-                    <RibbonButton SmallImageSource="/WpfApplicationPractice;component/Images/filter_delete.png" Label="{Binding Ribbon_ClearFilter_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Width="{Binding ActualWidth, ElementName=ribbonTextBox, Mode=OneWay}" Command="{Binding ClearFilter, Mode=OneWay}"></RibbonButton>
+                    <RibbonButton SmallImageSource="/WpfApplicationPractice;component/Images/filter_delete.png" Label="{Binding Ribbon_ClearFilter_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Width="{Binding ActualWidth, ElementName=ribbonTextBox, Mode=OneWay}" Command="{Binding ClearFilterCommand, Mode=OneWay}"></RibbonButton>
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
         <!-- Row 2 -->
-        <DataGrid x:Name="dataGrid" Grid.Column="0" Grid.Row="1" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding Employees, Mode=OneWay}" AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFE0E0E0" VerticalGridLinesBrush="#FFE0E0E0" IsReadOnly="True" SelectionMode="Single">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding Edit}"></i:InvokeCommandAction>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-            
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}"/>
-                <DataGridTextColumn Binding="{Binding Name}" ClipboardContentBinding="{x:Null}"/>
-                <DataGridTextColumn Binding="{Binding Department.Name}" ClipboardContentBinding="{x:Null}"/>
-                <DataGridTextColumn Binding="{Binding Job.Name}" ClipboardContentBinding="{x:Null}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <TabControl Grid.Row="1" ItemsSource="{Binding OpenTabs}" SelectedIndex="{Binding SelectedTab}">
+           <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <Button Grid.Column="1" Width="20" Height="20" Margin="3,0" Command="{Binding DataContext.CloseTabCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:MainWindow}}}">x</Button>
+                    </Grid>
+                </DataTemplate>
+           </TabControl.ItemTemplate>
+            <TabControl.Resources>
+                <DataTemplate DataType="{x:Type viewModels:EmployeeListViewModel}">
+                    <views:EmployeeListView DataContext="{Binding}"></views:EmployeeListView>
+                </DataTemplate>
+            </TabControl.Resources>
+        </TabControl>
         <!-- Begin Row 3 -->
         <StatusBar Grid.Row="2">
             <StatusBarItem>
                 <TextBlock Text="{Binding StatusBar_CurrentIndex_Text, Mode=OneWay, Source={StaticResource ApplicationText}}"></TextBlock>
             </StatusBarItem>
             <StatusBarItem>
-                <TextBlock Text="{Binding SelectedIndex}"></TextBlock>
+                <TextBlock Text="{Binding SelectedTab}"></TextBlock>
             </StatusBarItem>
         </StatusBar>
 

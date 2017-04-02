@@ -29,7 +29,7 @@ namespace WpfApplicationPractice.Properties {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public ApplicationText() {
+        internal ApplicationText() {
         }
         
         /// <summary>
@@ -88,6 +88,15 @@ namespace WpfApplicationPractice.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Edad.
+        /// </summary>
+        public static string Employee_Age_Column_Header {
+            get {
+                return ResourceManager.GetString("Employee_Age_Column_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La edad debe de ser entre 18 y 99 años..
         /// </summary>
         public static string Employee_Age_Range_Error {
@@ -106,6 +115,15 @@ namespace WpfApplicationPractice.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Departamento.
+        /// </summary>
+        public static string Employee_Department_Column_Header {
+            get {
+                return ResourceManager.GetString("Employee_Department_Column_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Departamento:.
         /// </summary>
         public static string Employee_DepartmentLabel_Text {
@@ -115,11 +133,29 @@ namespace WpfApplicationPractice.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Puesto.
+        /// </summary>
+        public static string Employee_Job_Column_Header {
+            get {
+                return ResourceManager.GetString("Employee_Job_Column_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Puesto:.
         /// </summary>
         public static string Employee_JobLabel_Text {
             get {
                 return ResourceManager.GetString("Employee_JobLabel_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        public static string Employee_Name_Column_Header {
+            get {
+                return ResourceManager.GetString("Employee_Name_Column_Header", resourceCulture);
             }
         }
         
@@ -147,6 +183,15 @@ namespace WpfApplicationPractice.Properties {
         public static string Employee_NameLabel_Text {
             get {
                 return ResourceManager.GetString("Employee_NameLabel_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Empleados.
+        /// </summary>
+        public static string Employee_View_Name {
+            get {
+                return ResourceManager.GetString("Employee_View_Name", resourceCulture);
             }
         }
         
@@ -223,6 +268,15 @@ namespace WpfApplicationPractice.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Departamentos.
+        /// </summary>
+        public static string Ribbon_Department {
+            get {
+                return ResourceManager.GetString("Ribbon_Department", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Edición.
         /// </summary>
         public static string Ribbon_EditionGroup_Text {
@@ -241,11 +295,29 @@ namespace WpfApplicationPractice.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Empleados.
+        /// </summary>
+        public static string Ribbon_Employee {
+            get {
+                return ResourceManager.GetString("Ribbon_Employee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Salir.
         /// </summary>
         public static string Ribbon_Exit_Text {
             get {
                 return ResourceManager.GetString("Ribbon_Exit_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Puestos de trabajo.
+        /// </summary>
+        public static string Ribbon_Jobs {
+            get {
+                return ResourceManager.GetString("Ribbon_Jobs", resourceCulture);
             }
         }
         

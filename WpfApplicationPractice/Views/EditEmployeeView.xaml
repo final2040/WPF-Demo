@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="EditEmployeeView" Height="318.5" Width="361.924">
     <Window.DataContext>
-        <ViewModels:EditEmployeeViewModel/>
+        <ViewModels:EditEmployeeViewModelBase/>
     </Window.DataContext>
     <Grid Margin="10" Height="Auto">
         <Grid.RowDefinitions>

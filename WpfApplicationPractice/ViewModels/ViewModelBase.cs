@@ -8,14 +8,16 @@ using WpfApplicationPractice.Helpers;
 
 namespace WpfApplicationPractice.ViewModels
 {
-    public abstract class ViewModel:INotifyPropertyChanged, IDataErrorInfo
+    public abstract class ViewModelBase:INotifyPropertyChanged, IDataErrorInfo
     {
         private readonly ValidationContext _validationContext;
 
-        public ViewModel()
+        public ViewModelBase()
         {
             _validationContext = new ValidationContext(this);
         }
+
+        public string Name { get; set; }
 
         public bool ValidateViewModel()
         {
