@@ -1,15 +1,13 @@
-﻿<Window
+﻿<Window x:Name="window" x:Class="WpfApplicationPractice.Views.EditJobView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplicationPractice.Views"
-        xmlns:ViewModels="clr-namespace:WpfApplicationPractice.ViewModels" x:Name="window" x:Class="WpfApplicationPractice.Views.EditEmployeeView"
+        xmlns:viewModels="clr-namespace:WpfApplicationPractice.ViewModels"
         mc:Ignorable="d"
-        Title="EditEmployeeView" Height="318.5" Width="361.924">
-    <Window.DataContext>
-        <ViewModels:EditEmployeeViewModel/>
-    </Window.DataContext>
+        d:DataContext="{d:DesignInstance Type=viewModels:EditJobViewModel, IsDesignTimeCreatable=False}"
+        Title="EditJobView" Height="198.649" Width="300">
     <Grid Margin="10" Height="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,7 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="{Binding EditEmployee_Title_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" FontSize="30" FontFamily="Segoe UI Semilight" Foreground="#FF5A7EE0" Margin="-1,0,1,0"/>
+        <TextBlock Grid.Row="0" Text="{Binding EditDepartMent_Title_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" FontSize="30" FontFamily="Segoe UI Semilight" Foreground="#FF5A7EE0" Margin="-1,0,1,0"/>
         <Separator Grid.Row="0" VerticalAlignment="Bottom" Margin="2" Foreground="#FF1F2563" Background="#FFA4B6E8" Height="2"/>
 
         <GroupBox x:Name="groupBox" Header="GroupBox" Grid.Row="1">
@@ -32,24 +30,6 @@
                 </Grid.RowDefinitions>
                 <Label Content="{Binding Employee_NameLabel_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Grid.Row="0" Grid.Column="0" Margin="3"/>
                 <TextBox  Grid.Row="0" Grid.Column="1" Margin="3,3,3,15" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Height="25" Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
-                <Label Content="{Binding Employee_AgeLabel_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Grid.Row="1" Grid.Column="0" Margin="3"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="3,3,3,15" Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Height="25" Validation.ErrorTemplate="{StaticResource ErrorTemplate}"/>
-            </Grid>
-        </GroupBox>
-        <GroupBox x:Name="groupBox1" Header="GroupBox" Grid.Row="2">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <Label Content="{Binding Employee_JobLabel_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Grid.Row="0" Grid.Column="0" Margin="3"/>
-                <ComboBox Grid.Row="0" Grid.Column="1" Margin="3" ItemsSource="{Binding JobList}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedValue="{Binding Job}"/>
-                <Label Content="{Binding Employee_DepartmentLabel_Text, Mode=OneWay, Source={StaticResource ApplicationText}}" Grid.Row="1" Grid.Column="0" Margin="3"/>
-                <ComboBox Grid.Row="1" Grid.Column="1" Margin="3" ItemsSource="{Binding DepartmentList}" SelectedValue="{Binding Department, Mode=TwoWay, NotifyOnValidationError=True}" SelectedValuePath="Key" DisplayMemberPath="Value"/>
             </Grid>
         </GroupBox>
         <Grid Grid.Row="3">

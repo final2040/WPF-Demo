@@ -216,6 +216,12 @@
   <data name="Employee_View_Name" xml:space="preserve">
     <value>Empleados</value>
   </data>
+  <data name="Department_ViewName" xml:space="preserve">
+    <value>Departamentos</value>
+  </data>
+  <data name="Jobs_ViewName" xml:space="preserve">
+    <value>Puestos de trabajo</value>
+  </data>
   <data name="Ribbon_Department" xml:space="preserve">
     <value>Departamentos</value>
   </data>
@@ -224,5 +230,11 @@
   </data>
   <data name="Ribbon_Jobs" xml:space="preserve">
     <value>Puestos de trabajo</value>
+  </data>
+  <data name="EditDepartMent_Title_Text" xml:space="preserve">
+    <value>Editar Departamento</value>
+  </data>
+  <data name="EditJob_Title_Text" xml:space="preserve">
+    <value>Editar Puesto de trabajo</value>
   </data>
 </root>

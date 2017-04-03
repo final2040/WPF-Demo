@@ -60,16 +60,23 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <TextBlock Text="{Binding ViewName}"></TextBlock>
                         <Button Grid.Column="1" Width="20" Height="20" Margin="3,0" Command="{Binding DataContext.CloseTabCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:MainWindow}}}">x</Button>
                     </Grid>
                 </DataTemplate>
            </TabControl.ItemTemplate>
-            <TabControl.Resources>
-                <DataTemplate DataType="{x:Type viewModels:EmployeeListViewModel}">
-                    <views:EmployeeListView DataContext="{Binding}"></views:EmployeeListView>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <DataGrid ItemsSource="{Binding Context}" SelectedIndex="{Binding SelectedIndex}" HorizontalGridLinesBrush="#FFEAEAEA" VerticalGridLinesBrush="#FFEAEAEA" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDoubleClick">
+                                <i:InvokeCommandAction Command="{Binding EditCommand}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </DataGrid>    
+                        
                 </DataTemplate>
-            </TabControl.Resources>
+            </TabControl.ContentTemplate>
         </TabControl>
         <!-- Begin Row 3 -->
         <StatusBar Grid.Row="2">

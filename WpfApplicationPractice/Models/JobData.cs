@@ -32,7 +32,10 @@ namespace WpfApplicationPractice.Models
         public void AddOrUpdate(JobEntity entity)
         {
             if (!Exists(entity))
+            {
+                entity.Id = Jobs.Max(j => j.Id) + 1;
                 Jobs.Add(entity);
+            }
             else
             {
                 JobEntity jobToUpdate = Jobs.FirstOrDefault(j => j.Id == entity.Id);

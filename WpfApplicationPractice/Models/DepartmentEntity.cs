@@ -10,5 +10,10 @@ namespace WpfApplicationPractice.Models
         [Required(ErrorMessageResourceType = typeof(ApplicationText), ErrorMessageResourceName = "Required_Error")]
         [RegularExpression("^[a-zA-ZáéíóúüÁÉÍÓÚÜ ]+$", ErrorMessageResourceType = typeof(ApplicationText), ErrorMessageResourceName = "Department_Name_Format_Error")]
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

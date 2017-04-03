@@ -10,7 +10,7 @@ using WpfApplicationPractice.Properties;
 
 namespace WpfApplicationPractice.ViewModels
 {
-    public class EditEmployeeViewModelBase:ViewModelBase
+    public class EditEmployeeViewModel:ViewModelBase
     {
         private readonly EmployeeData _employeeData = new EmployeeData();
         private string _name;
@@ -20,12 +20,12 @@ namespace WpfApplicationPractice.ViewModels
         private readonly JobData _jobData = new JobData();
         private readonly DepartmentData _departmentData = new DepartmentData();
 
-        public EditEmployeeViewModelBase()
+        public EditEmployeeViewModel()
         {
             
         }
 
-        public EditEmployeeViewModelBase(object entity)
+        public EditEmployeeViewModel(object entity)
         {
             if (entity.GetType() != typeof(EmployeeEntity))
                 throw new ArgumentException(ApplicationText.InvalidTypeErrror,nameof(entity));

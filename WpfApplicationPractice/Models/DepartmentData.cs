@@ -37,7 +37,10 @@ namespace WpfApplicationPractice.Models
         public void AddOrUpdate(DepartmentEntity entity)
         {
             if (!Exists(entity))
+            {
+                entity.Id = Departments.Max(d => d.Id) + 1;
                 Departments.Add(entity);
+            }
             else
             {
                 DepartmentEntity entityToUpdate = Departments.FirstOrDefault(d => d.Id == entity.Id);

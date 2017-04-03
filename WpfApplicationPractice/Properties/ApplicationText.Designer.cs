@@ -79,11 +79,38 @@ namespace WpfApplicationPractice.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Departamentos.
+        /// </summary>
+        public static string Department_ViewName {
+            get {
+                return ResourceManager.GetString("Department_ViewName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar Departamento.
+        /// </summary>
+        public static string EditDepartMent_Title_Text {
+            get {
+                return ResourceManager.GetString("EditDepartMent_Title_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Editar Empleado.
         /// </summary>
         public static string EditEmployee_Title_Text {
             get {
                 return ResourceManager.GetString("EditEmployee_Title_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar Puesto de trabajo.
+        /// </summary>
+        public static string EditJob_Title_Text {
+            get {
+                return ResourceManager.GetString("EditJob_Title_Text", resourceCulture);
             }
         }
         
@@ -210,6 +237,15 @@ namespace WpfApplicationPractice.Properties {
         public static string Job_Name_Format_Error {
             get {
                 return ResourceManager.GetString("Job_Name_Format_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Puestos de trabajo.
+        /// </summary>
+        public static string Jobs_ViewName {
+            get {
+                return ResourceManager.GetString("Jobs_ViewName", resourceCulture);
             }
         }
         

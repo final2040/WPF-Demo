@@ -17,7 +17,7 @@ namespace WpfApplicationPractice.ViewModels
             _validationContext = new ValidationContext(this);
         }
 
-        public string Name { get; set; }
+        public string ViewModelName { get; set; }
 
         public bool ValidateViewModel()
         {

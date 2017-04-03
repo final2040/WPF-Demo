@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Windows.Input;
 using WpfApplicationPractice.Helpers;
 using WpfApplicationPractice.Models;
-using WpfApplicationPractice.Properties;
 
 namespace WpfApplicationPractice.ViewModels
 {
@@ -110,11 +109,13 @@ namespace WpfApplicationPractice.ViewModels
 
         private void CreateDepartmentTab(object obj)
         {
-            throw new System.NotImplementedException();
+            OpenTabs.Add(new DepartmentListViewModel());
+            SelectedTab = OpenTabs.Count - 1;
         }
         private void CreateJobTab(object obj)
         {
-            throw new System.NotImplementedException();
+            OpenTabs.Add(new JobListViewModel());
+            SelectedTab = OpenTabs.Count - 1;
         }
         private void CreateEmployeeTab(object obj)
         {

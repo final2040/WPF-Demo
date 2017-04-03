@@ -9,7 +9,7 @@ namespace WpfApplicationPractice.ViewModels
     public interface IListViewModel 
     {
         ObservableCollection<object> Context { get; set; }
-        string Name { get; }
+        string ViewName { get; set; }
         object SelectedEntity { get; }
         int SelectedIndex { get; set; }
         ICommand EditCommand { get; }

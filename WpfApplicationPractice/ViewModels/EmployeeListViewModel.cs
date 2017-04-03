@@ -14,7 +14,8 @@ namespace WpfApplicationPractice.ViewModels
 
         public EmployeeListViewModel()
         {
-            Name = ApplicationText.Employee_View_Name;
+            ViewName = ApplicationText.Employee_View_Name;
+            ViewModelName = ApplicationText.Employee_View_Name;
             EditCommand = new RelayCommand(Edit, () => SelectedIndex >= 0);
             AddCommand = new RelayCommand(Add, () => true);
             DeleteCommand = new RelayCommand(Delete, () => SelectedIndex>=0);
@@ -42,6 +43,8 @@ namespace WpfApplicationPractice.ViewModels
             }
         }
 
+        public string ViewName { get; set; }
+
         public object SelectedEntity
         {
             get { return Context[SelectedIndex]; }
@@ -68,8 +71,7 @@ namespace WpfApplicationPractice.ViewModels
         public ICommand UpdateViewCommand { get; }
         public ICommand ClearFilterCommand { get;  }
         
-
-
+        
         private void UpdateView(object obj)
         {
             Context = new ObservableCollection<object>(_dataContext.GetAll());

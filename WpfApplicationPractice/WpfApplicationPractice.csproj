@@ -59,13 +59,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\DepartmentListViewModel.cs" />
+    <Compile Include="ViewModels\EditJobViewModel.cs" />
+    <Compile Include="ViewModels\EditDepartmentViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListViewModel.cs" />
     <Compile Include="ViewModels\IListViewModel.cs" />
     <Compile Include="Helpers\WindowProvider.cs" />
+    <Compile Include="ViewModels\JobListViewModel.cs" />
+    <Compile Include="Views\EditDepartmentView.xaml.cs">
+      <DependentUpon>EditDepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditJobView.xaml.cs">
+      <DependentUpon>EditJobView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeeListView.xaml.cs">
       <DependentUpon>EmployeeListView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\EditDepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditJobView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -87,7 +105,7 @@
     <Compile Include="Models\JobEntity.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\EditEmployeeViewModelBase.cs" />
+    <Compile Include="ViewModels\EditEmployeeViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\EditEmployeeView.xaml.cs">
       <DependentUpon>EditEmployeeView.xaml</DependentUpon>
